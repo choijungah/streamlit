@@ -26,9 +26,11 @@ df = pd.DataFrame({ # DataFrame 생성
 : ['홍길동'
 ,
 '이순신'
+,
+'최정아'
 ],
  '나이'
-: [20, 45]
+: [20, 45, 25]
  })
 
 st.dataframe(df) # DataFrame 출력
