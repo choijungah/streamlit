@@ -5,8 +5,8 @@ import folium
 from streamlit_folium import st_folium
 
 # 1. Streamlit 클라우드 경로 설정
-EXCEL_FILE = "dsf_3/출산율통계최종.xlsx"
-SHP_FILE = "dsf_3/N3A_G0100000.shp"
+EXCEL_FILE = "출산율통계최종.xlsx"
+SHP_FILE = "N3A_G0100000.shp"
 
 # 2. 엑셀 데이터 로드 및 전처리
 df_seoul_pop = pd.read_excel(EXCEL_FILE, engine='openpyxl', header=[0, 1])
