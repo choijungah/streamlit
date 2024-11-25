@@ -4,12 +4,10 @@ import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
 
-# 1. Streamlit 클라우드 경로 설정
-EXCEL_FILE = "출산율통계최종.xlsx"
-SHP_FILE = "N3A_G0100000.shp"
+
 
 # 2. 엑셀 데이터 로드 및 전처리
-df_seoul_pop = pd.read_excel(EXCEL_FILE, engine='openpyxl', header=[0, 1])
+df_seoul_pop = pd.read_excel("출산율통계최종.xlsx", engine='openpyxl', header=[0, 1])
 df_seoul_pop.columns = ['_'.join(col).strip() for col in df_seoul_pop.columns.values]
 df_seoul_pop = df_seoul_pop[['행정구역별_행정구역별', '2023_합계출산율 (가임여성 1명당 명)']]
 
@@ -24,11 +22,16 @@ df_seoul_pop = df_seoul_pop[df_seoul_pop['행정구역별_행정구역별'] != '
 df_seoul_pop = df_seoul_pop.reset_index(drop=True)
 df_seoul_pop['행정구역별_행정구역별'] = df_seoul_pop['행정구역별_행정구역별'].str.strip()
 
-# 3. GeoJSON 데이터 로드 및 전처리
-gdf = gpd.read_file(SHP_FILE)
+# 3. shp 데이터 로드 및 전처리
+@st.cache_data
+def read_fgb(file):
+    gdf = gpd.read_file(file)
+    return gdf    
+gdf=read_fgb("N3A_G0100000.fgb")
 gdf.rename(columns={'NAME': '행정구역별_행정구역별'}, inplace=True)
 
 # 중복된 행정구역 처리 함수
+
 def modify_district_name(row, duplicated_names):
     if row['행정구역별_행정구역별'] in duplicated_names:
         bjcd_prefix = str(row['BJCD'])[:2]
@@ -70,4 +73,5 @@ folium.Choropleth(
 ).add_to(nation_map)
 
 # 5. Streamlit에서 Folium 지도 렌더링
+
 st_folium(nation_map, width=800, height=600)
