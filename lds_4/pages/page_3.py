@@ -10,7 +10,7 @@ def main():
     
     # ------ 로컬 경로 직접 지정 ------
     csv_path = "지역별(행정동) 성별 연령별 주민등록 인구수_20241031.csv"
-    shp_path = "SGG.shp"
+    shp_path = "./SGG.shp"
     
     # ---- CSV 파일 읽기 (euc-kr 인코딩) ----
     df = pd.read_csv(csv_path, encoding='euc-kr')

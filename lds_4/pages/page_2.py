@@ -10,7 +10,7 @@ def app():
 
     # CSV & SHP 파일 경로
     csv_file_path = "KCB_SIGNGU_DATA5_23_202410.csv"
-    shp_file_path = "SGG.shp"
+    shp_file_path = "./SGG.shp"
 
     # CSV 불러오기
     st.subheader("1) CSV 데이터 불러오기")
