@@ -10,7 +10,7 @@ def main():
     
     # ------ 로컬 경로 직접 지정 ------
     csv_path = "지역별(행정동) 성별 연령별 주민등록 인구수_20241031.csv"
-    shp_path = "LX법정구역경계_시군구_전국 (1)/SGG.shp"
+    shp_path = "SGG.shp"
     
     # ---- CSV 파일 읽기 (euc-kr 인코딩) ----
     df = pd.read_csv(csv_path, encoding='euc-kr')
@@ -144,7 +144,7 @@ def main():
         filtered_df = merged_df
 
     # 병합된 데이터 저장
-    merged_df.to_csv("C:/Users/Administrator/Downloads/merged_senior.csv", index=False, encoding='utf-8-sig')
+    merged_df.to_csv("merged_senior.csv", index=False, encoding='utf-8-sig')
     st.success("고령인구 비율 데이터가 'merged_senior.csv'로 저장되었습니다.")
 
 if __name__ == "__main__":
