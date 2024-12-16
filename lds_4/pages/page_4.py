@@ -7,11 +7,11 @@ def app():
     st.title("네 번째 페이지: 고령비율 vs. 평균소득 (Scatter + Top/Bottom 5 이중축)")
 
     # -- 1) 두 번째 페이지 결과: 시군구 평균 소득 CSV --
-    income_csv_path = "C:/Users/Administrator/Downloads/KCB_SIGNGU_DATA5_23_202410.csv"
+    income_csv_path = "KCB_SIGNGU_DATA5_23_202410.csv"
     df_income = pd.read_csv(income_csv_path, encoding='utf-8')
     
     # -- 2) 세 번째 페이지 결과: 고령인구 비율 CSV --
-    senior_csv_path = "C:/Users/Administrator/Downloads/merged_senior.csv"
+    senior_csv_path = "merged_senior.csv"
     df_senior = pd.read_csv(senior_csv_path, encoding='utf-8')
     
     st.subheader("1) 시군구 평균 소득 데이터 미리보기")

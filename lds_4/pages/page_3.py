@@ -9,8 +9,8 @@ def main():
     st.title("시군구별 고령인구 비율 시각화")
     
     # ------ 로컬 경로 직접 지정 ------
-    csv_path = "C:/Users/Administrator/Downloads/지역별(행정동) 성별 연령별 주민등록 인구수_20241031.csv"
-    shp_path = "C:/Users/Administrator/Downloads/LX법정구역경계_시군구_전국 (1)/SGG.shp"
+    csv_path = "지역별(행정동) 성별 연령별 주민등록 인구수_20241031.csv"
+    shp_path = "LX법정구역경계_시군구_전국 (1)/SGG.shp"
     
     # ---- CSV 파일 읽기 (euc-kr 인코딩) ----
     df = pd.read_csv(csv_path, encoding='euc-kr')

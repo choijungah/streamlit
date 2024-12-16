@@ -9,8 +9,8 @@ def app():
     st.sidebar.title("시군구별 평균 소득 - 사이드바")
 
     # CSV & SHP 파일 경로
-    csv_file_path = "C:/Users/Administrator/Downloads/KCB_SIGNGU_DATA5_23_202410.csv"
-    shp_file_path = "C:/Users/Administrator/Downloads/LX법정구역경계_시군구_전국 (1)/SGG.shp"
+    csv_file_path = "KCB_SIGNGU_DATA5_23_202410.csv"
+    shp_file_path = "LX법정구역경계_시군구_전국 (1)/SGG.shp"
 
     # CSV 불러오기
     st.subheader("1) CSV 데이터 불러오기")
